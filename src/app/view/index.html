@@ -13,12 +13,28 @@
     <!-- 使用模板数据 -->
     <h1><%-title%></h1>
     <!-- 使用模板数据 -->
-    <h2>皇家</h2>
+    <button id='button' type="button">投注100</button>
     <script>
         const socket = io('http://127.0.0.1:7001/default', {
             // 实际使用中可以在这里传递参数
             transports: ['websocket']
         });
+
+        socket.on('publish', (msg) => {
+            alert(msg.msg);
+        })
+
+        socket.on('connect', () => {
+            console.log('socket.io connect success')
+        })
+
+        let button = document.getElementById('button');
+        button.onclick = () => {
+            socket.emit('action', {
+                type: 'func',
+                msg: 'someone 投注100'
+            })
+        }
     </script>
 </body>
 
