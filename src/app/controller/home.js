@@ -4,8 +4,11 @@ const Controller = require('egg').Controller;
 
 class HomeController extends Controller {
   async index() {
-    const { ctx } = this;
-    ctx.body = 'hi, egg';
+    let title = "澳门皇家赌场"; //向模板传入数据
+    await this.ctx.render('index',{
+      title: title
+    });
+
   }
 }
 

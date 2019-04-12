@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/socket.io-client/dist/socket.io.slim.js"></script>
+    <title><%-title%></title>
+</head>
+
+<body>
+    <!-- 使用模板数据 -->
+    <h1><%-title%></h1>
+    <!-- 使用模板数据 -->
+    <h2>皇家</h2>
+    <script>
+        const socket = io('http://127.0.0.1:7001/default', {
+            // 实际使用中可以在这里传递参数
+            transports: ['websocket']
+        });
+    </script>
+</body>
+
+</html>
