@@ -4,10 +4,10 @@ const Controller = require('egg').Controller;
 
 class HomeController extends Controller {
   async index() {
-    let jsonObj = await this.ctx.service.readjson.rj();   ///读取json文件
-
+    let jsonObj = await this.ctx.service.readjson.pullFromServer();   ///读取json文件
+    jsonObj = JSON.parse(jsonObj);
     await this.ctx.render('index',{
-      title: jsonObj.title
+      title: jsonObj.message
     });
 
   }
